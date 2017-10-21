@@ -35,3 +35,31 @@ End.onmouseover=function()
 	Status.innerHTML = "You Win!"
 	}
 }
+start.addEventListener("click",function(){
+	for(var i=0;i<walls.length;i++)
+	{
+	walls[i].style.backgroundColor="#eeeeee";
+	}
+	walltouch=0;
+	Status.innerHTML="Move your mouse over \"S\" to begin.";
+
+	mazeleft=maze.offsetLeft;
+	maze.onmousemove=function()
+	{
+	Checker(event);
+	}
+});
+function Checker(e)
+{
+	var x=e.clientX;
+	console.log(x);
+	console.log(mazeLeft);
+	if(x<mazeLeft)
+	{
+	console.log('Hit');
+	for(var i=0;i<walls.length;i++)
+	{
+	walls[i].style.backgroundColor="#ff8888"
+	}
+	}
+}

@@ -1,0 +1,37 @@
+window.onload= function()
+
+var Flag=0; 
+var walltouch=0;
+var positionFlag=true;
+var mazeleft=0;
+var start= document.getElementaryById("start");
+var walls = document.querySelectorAll('.boundary');
+var End=document.getElementById("end");
+var Status= document.getElementById('status');
+var Maze =document.getElementById('maze');
+
+start.onmouseover = function()
+{
+	Flag=1;
+}
+for (var i = 0; i<walls.length; i++)
+{
+	walls[i].onmouseover=function()
+	{
+	walltouch=1;
+	if(Flag==1)
+	{
+	for(var j=0;j<walls.length;j++)
+	{
+	walls[j].style.backgroundColor="#ff7688";
+	}
+	}
+	}
+}
+End.onmouseover=function()
+{
+	if(Flag===1 && walltouch===0)
+	{
+	Status.innerHTML = "You Win!"
+	}
+}
